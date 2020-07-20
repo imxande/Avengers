@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import { Route, Link, Switch } from "react-router-dom";
-import AdvengersList from "./components/AvengersList";
+import AvengersList from "./components/AvengersList";
+import avengersData from "./data/data";
 
 function App() {
+  // data state
+  const [data, setData] = useState(avengersData);
+  console.log("Data: ", data);
+
   return (
     <div>
       <nav className="nav">
@@ -17,7 +22,9 @@ function App() {
       </nav>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/avengers" component={AdvengersList} />
+        <Route path="/avengers">
+          <AvengersList data={data} />
+        </Route>
       </Switch>
     </div>
   );
