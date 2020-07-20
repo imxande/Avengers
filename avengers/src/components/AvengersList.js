@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import avengersData from "../data/data";
 
 const AvengersList = () => {
-  return <div>I am connected</div>;
+  // data state
+  const [data, setData] = useState(avengersData);
+  console.log(data);
+
+  return (
+    <div className="avengers">
+      <h1>List of Avengers</h1>
+    </div>
+  );
 };
 
 export default AvengersList;
