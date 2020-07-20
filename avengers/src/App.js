@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Home from "./components/Home";
 import { Route, Link, Switch } from "react-router-dom";
+import AdvengersList from "./components/AvengersList";
 
 function App() {
   return (
@@ -10,8 +11,14 @@ function App() {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/avengers">Avengers</Link>
+        </li>
       </nav>
-      <Home />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/avengers" component={AdvengersList} />
+      </Switch>
     </div>
   );
 }
